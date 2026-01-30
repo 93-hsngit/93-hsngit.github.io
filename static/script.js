@@ -120,4 +120,19 @@ function showFeedback() {
     chip.innerHTML = originalHTML;
   }, 2000);
 }
+/* ===============================
+   Secure WhatsApp Redirect
+=============================== */
+function openWhatsApp() {
+  // We split the number to make it even harder for basic bots to read
+  const countryCode = "91";
+  const areaPart = "9004";
+  const phonePart = "319542";
+  const message = encodeURIComponent("Hello Dr. Hossain, I saw your research portfolio and...");
+  
+  const fullUrl = `https://wa.me/${countryCode}${areaPart}${phonePart}?text=${message}`;
+  
+  // Opens the link in a new tab
+  window.open(fullUrl, '_blank', 'noopener,noreferrer');
+}
 
