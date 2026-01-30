@@ -207,6 +207,12 @@ body{
   .nav{ display:none; }
   .hide-sm{ display:none; }
 }
+@media (max-width: 768px) {
+  .hero-narrative {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
 
 /* =========================
    Buttons
