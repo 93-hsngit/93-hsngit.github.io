@@ -39,16 +39,13 @@
 /* ===============================
    Project image rotation
 =============================== */
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   document.querySelectorAll("[data-rotate]").forEach(container => {
     const images = container.querySelectorAll("img");
-    if (images.length < 2) return;
+    if (images.length <= 1) return;
 
     let index = 0;
-
-    images.forEach((img, i) => {
-      img.classList.toggle("active", i === 0);
-    });
+    images.forEach((img, i) => img.classList.toggle("active", i === 0));
 
     setInterval(() => {
       images[index].classList.remove("active");
