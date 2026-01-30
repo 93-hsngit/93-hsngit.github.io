@@ -689,7 +689,7 @@ input:focus, textarea:focus{
 /* ===== Project visuals (stable, centered, swap-safe) ===== */
 
 .project-visual {
-  margin: 16px auto 0;     /* center horizontally */
+  margin: 18px auto 0;     /* center horizontally */
   width: 320px;
   height: 200px;
 
