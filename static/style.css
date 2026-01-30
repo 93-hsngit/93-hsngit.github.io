@@ -753,4 +753,60 @@ input:focus, textarea:focus{
   font-family: "Libre Baskerville", serif;
   max-width: 800px;
 }
+/* ================================================= */
+/* ADVANCED SCIENTIFIC VISUALS              */
+/* ================================================= */
+
+/* 1. Adds a technical coordinate grid over project images */
+.project-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(124, 92, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 92, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px; 
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 2. Adds a high-end glow to active research diagrams */
+.project-visual img.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 15px rgba(124, 92, 255, 0.2));
+}
+
+/* 3. Re-styles badges to look like data/terminal output */
+.badge {
+  font-family: 'Courier New', monospace; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  border-radius: 4px; 
+  background: var(--card2);
+  border: 1px solid var(--accent);
+  color: var(--accent2);
+}
+
+/* 4. Adds a subtle "film grain" texture to the background */
+.bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.03; 
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(150%) brightness(1000%);
+  z-index: 1;
+}
+/* Ensure the grid and grain adapt to Light Mode */
+[data-theme="light"] .project-visual::after {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+[data-theme="light"] .bg::before {
+  opacity: 0.015; /* Even more subtle for white backgrounds */
+}
 
