@@ -732,4 +732,25 @@ input:focus, textarea:focus{
     display: none;
   }
 }
+/* --- Advanced Scientific Typography --- */
+
+/* Use the elegant serif font for a "Published Paper" look in headers */
+.hero-title, .section-head h2 {
+  font-family: "Libre Baskerville", serif; 
+  letter-spacing: -0.01em;
+}
+
+/* Increase line-height for better readability of research text */
+.hero-narrative, .card p {
+  font-family: "Inter", sans-serif; 
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Optional: Make the "About" text feel more like a journal abstract */
+.section-head p {
+  font-style: italic;
+  font-family: "Libre Baskerville", serif;
+  max-width: 800px;
+}
 
