@@ -829,3 +829,30 @@ input:focus, textarea:focus{
   transform: translateY(-1px);
   transition: all 0.2s ease;
 }
+/* --- News Section Consistency --- */
+
+/* Ensures the featured item has a subtle highlight background */
+.featured-news {
+  border-left: 4px solid var(--accent) !important;
+  background: linear-gradient(90deg, var(--card2), var(--card));
+}
+
+/* Standardizes the Featured Badge appearance */
+.featured-tag {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  font-size: 0.7em !important;
+  vertical-align: middle;
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Matches the font of the list-titles to your serif header style */
+.list-title {
+  font-family: "Inter", sans-serif; /* Keep titles clean for readability */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
