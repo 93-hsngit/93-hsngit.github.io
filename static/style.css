@@ -688,10 +688,6 @@ input:focus, textarea:focus{
 
 /* ===== Project visuals (centered, cross-browser safe) ===== */
 
-.card {
-  position: relative; /* anchor for absolute visuals */
-}
-
 .project-visual {
   position: absolute;
   bottom: 24px;
