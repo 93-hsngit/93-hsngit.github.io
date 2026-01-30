@@ -82,4 +82,24 @@ document.querySelectorAll('.card, .list-item').forEach(el => {
   el.style.transition = "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)";
   observer.observe(el);
 });
+/* ===============================
+   Copy Email Functionality
+=============================== */
+function copyEmail() {
+  const emailText = document.getElementById("userEmail").textContent;
+  
+  navigator.clipboard.writeText(emailText).then(() => {
+    // Visual feedback: briefly change the icon or text
+    const chip = document.querySelector('.chip[onclick="copyEmail()"]');
+    const originalContent = chip.innerHTML;
+    
+    chip.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
+    
+    setTimeout(() => {
+      chip.innerHTML = originalContent;
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
 
