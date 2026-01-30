@@ -689,7 +689,7 @@ input:focus, textarea:focus{
 /* ===== Project visuals (CENTERED, FLOW-BASED, FINAL) ===== */
 
 .project-visual {
-  margin: 18px auto 0;
+  margin: 16px auto 0;          /* centers & controls spacing */
 
   width: 320px;
   height: 200px;
@@ -726,7 +726,7 @@ input:focus, textarea:focus{
   opacity: 1;
 }
 
-/* Mobile */
+/* Mobile: hide visuals cleanly */
 @media (max-width: 768px) {
   .project-visual {
     display: none;
