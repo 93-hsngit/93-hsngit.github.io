@@ -21,7 +21,7 @@
   }
 
   /* ===============================
-     Footer year + last updated
+     Footer metadata
   =============================== */
   const yearEl = document.getElementById("year");
   if (yearEl) {
@@ -39,13 +39,8 @@
   }
 
   /* ===============================
-     Project image rotation
-     (calm, deterministic, academic)
+     Project image rotation + captions
   =============================== */
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
   const visualBlocks = document.querySelectorAll("[data-rotate]");
 
   visualBlocks.forEach(container => {
@@ -53,40 +48,29 @@
     if (images.length <= 1) return;
 
     let index = 0;
-    let timerId = null;
 
-    // Deterministic initial state
+    // Initialize state deterministically
     images.forEach((img, i) => {
       img.classList.toggle("active", i === 0);
     });
 
-    // Skip rotation if user prefers reduced motion
-    if (prefersReducedMotion) return;
+    container.setAttribute(
+      "data-caption",
+      images[0].dataset.caption || ""
+    );
 
-    const startRotation = () => {
-      if (timerId) return;
-      timerId = setInterval(() => {
-        images[index].classList.remove("active");
-        index = (index + 1) % images.length;
-        images[index].classList.add("active");
-      }, 4800); // slow, academic pace
-    };
+    // Calm, academic rotation
+    setInterval(() => {
+      images[index].classList.remove("active");
 
-    const stopRotation = () => {
-      clearInterval(timerId);
-      timerId = null;
-    };
+      index = (index + 1) % images.length;
 
-    // Pause rotation when tab is inactive (professional polish)
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        stopRotation();
-      } else {
-        startRotation();
-      }
-    });
-
-    startRotation();
+      images[index].classList.add("active");
+      container.setAttribute(
+        "data-caption",
+        images[index].dataset.caption || ""
+      );
+    }, 4800); // slow & intentional
   });
 })();
 
