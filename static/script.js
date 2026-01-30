@@ -1,11 +1,12 @@
 (function () {
+  const root = document.documentElement;
+
   /* ===============================
      Theme toggle
   =============================== */
-  const root = document.documentElement;
   const btn = document.getElementById("themeToggle");
-
   const savedTheme = localStorage.getItem("theme");
+
   if (savedTheme === "light" || savedTheme === "dark") {
     root.setAttribute("data-theme", savedTheme);
   }
@@ -35,25 +36,27 @@
       });
   }
 
-/* ===============================
-   Project image rotation (FINAL)
-=============================== */
-window.addEventListener("load", () => {
-  document.querySelectorAll("[data-rotate]").forEach(container => {
-    const images = Array.from(container.querySelectorAll("img"));
-    if (images.length <= 1) return;
+  /* ===============================
+     Project image rotation (FIXED)
+  =============================== */
+  window.addEventListener("load", () => {
+    document.querySelectorAll("[data-rotate]").forEach(container => {
+      const images = container.querySelectorAll("img");
+      if (images.length <= 1) return;
 
-    let index = 0;
+      let index = 0;
 
-    // Force clean initial state
-    images.forEach(img => img.classList.remove("active"));
-    images[0].classList.add("active");
+      // Ensure clean start
+      images.forEach(img => img.classList.remove("active"));
+      images[0].classList.add("active");
 
-    setInterval(() => {
-      images[index].classList.remove("active");
-      index = (index + 1) % images.length;
-      images[index].classList.add("active");
-    }, 4200);
+      setInterval(() => {
+        images[index].classList.remove("active");
+        index = (index + 1) % images.length;
+        images[index].classList.add("active");
+      }, 4000);
+    });
   });
-});
+
+})();
 
