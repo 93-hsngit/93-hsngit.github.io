@@ -690,31 +690,25 @@ input:focus, textarea:focus{
 
 .project-visual {
   position: absolute;
-
-  /* True horizontal centering */
   left: 50%;
   bottom: 24px;
   transform: translateX(-50%);
 
-  /* Visual size (balanced with text) */
   width: 300px;
   height: 200px;
 
-  /* Center image internally */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Hard reset to avoid browser leftovers */
   right: auto !important;
   top: auto !important;
 
-  pointer-events: none;
+  pointer-events: auto; /* FIXED */
   overflow: hidden;
 
   border-radius: 14px;
 
-  /* Subtle figure framing (paper-like) */
   background: rgba(0, 0, 0, 0.16);
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.35),
@@ -725,7 +719,6 @@ input:focus, textarea:focus{
   opacity: 0.97;
 }
 
-/* Images inside project visual */
 .project-visual img {
   position: absolute;
 
@@ -738,31 +731,18 @@ input:focus, textarea:focus{
   object-fit: contain;
   object-position: center;
 
+  pointer-events: none; /* FIXED */
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
 }
 
-/* Active image (JS toggles this) */
-.project-visual img.active {
-  opacity: 1;
-}
-
-/* Mobile: hide visuals cleanly */
-@media (max-width: 768px) {
-  .project-visual {
-    display: none;
-  }
-}
-/* ===== Figure caption (hover, paper-style) ===== */
-
 .project-visual::after {
   content: attr(data-caption);
   position: absolute;
-  left: 50%;
+  left: 8px;           /* FIXED */
+  right: 8px;          /* FIXED */
   bottom: 8px;
-  transform: translateX(-50%);
 
-  max-width: 90%;
   padding: 6px 10px;
 
   font-size: 0.75rem;
@@ -779,7 +759,6 @@ input:focus, textarea:focus{
   transition: opacity 0.3s ease;
 }
 
-/* Show caption on hover */
 .project-visual:hover::after {
   opacity: 1;
 }
