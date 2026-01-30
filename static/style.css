@@ -686,31 +686,29 @@ input:focus, textarea:focus{
   opacity: 0.9;
 }
 
-/* ===== Project visuals ===== */
-.project-visual {
-  position: absolute;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
+/* ===== Project visuals (stable, centered, swap-safe) ===== */
 
-  width: 300px;
+.project-visual {
+  margin: 16px auto 0;     /* center horizontally */
+  width: 320px;
   height: 200px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  position: relative;     /* REQUIRED for swapping */
   overflow: hidden;
-  border-radius: 14px;
 
-  background: rgba(0, 0, 0, 0.18);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
   backdrop-filter: blur(2px);
-  z-index: 3;
 }
 
 /* Images */
 .project-visual img {
   position: absolute;
+
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -723,11 +721,12 @@ input:focus, textarea:focus{
   transition: opacity 1.2s ease-in-out;
 }
 
+/* Active image */
 .project-visual img.active {
   opacity: 1;
 }
 
-/* Mobile: hide */
+/* Mobile: hide cleanly */
 @media (max-width: 768px) {
   .project-visual {
     display: none;
