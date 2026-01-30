@@ -856,3 +856,16 @@ input:focus, textarea:focus{
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+.chip[onclick] {
+  transition: all 0.2s ease;
+}
+
+.chip[onclick]:hover {
+  border-color: var(--accent);
+  background: var(--card2);
+  transform: translateY(-1px);
+}
+
+.chip[onclick]:active {
+  transform: translateY(0);
+}
