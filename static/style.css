@@ -734,19 +734,20 @@ input:focus, textarea:focus{
   opacity: 1;
 }
 
-/* Caption on hover */
+/* ===== Figure caption (paper-style, hover) ===== */
 .project-visual::after {
   content: attr(data-caption);
 
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
 
   padding: 8px 10px;
 
   font-size: 0.78rem;
-  line-height: 1.3;
+  line-height: 1.35;
+  text-align: center;
 
   color: #eaeaf0;
   background: linear-gradient(
@@ -761,12 +762,5 @@ input:focus, textarea:focus{
 
 .project-visual:hover::after {
   opacity: 1;
-}
-
-/* Mobile: hide figures */
-@media (max-width: 768px) {
-  .project-visual-wrapper {
-    display: none;
-  }
 }
 

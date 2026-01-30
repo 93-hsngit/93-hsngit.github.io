@@ -45,25 +45,34 @@ const visualBlocks = document.querySelectorAll("[data-rotate]");
 
 visualBlocks.forEach(container => {
   const images = container.querySelectorAll("img");
-  if (images.length <= 1) return;
+  if (images.length === 0) return;
 
   let index = 0;
 
-  function updateActive(i) {
-    images.forEach((img, j) => {
-      img.classList.toggle("active", j === i);
-    });
+  // Initialize
+  images.forEach((img, i) => {
+    img.classList.toggle("active", i === 0);
+  });
 
-    // 🔑 THIS IS THE FIX
-    const caption = images[i].getAttribute("data-caption") || "";
-    container.setAttribute("data-caption", caption);
-  }
+  // Set initial caption from first image
+  container.setAttribute(
+    "data-caption",
+    images[0].dataset.caption || ""
+  );
 
-  updateActive(0);
-
+  // Rotate images + captions
   setInterval(() => {
+    images[index].classList.remove("active");
+
     index = (index + 1) % images.length;
-    updateActive(index);
-  }, 4500);
+
+    images[index].classList.add("active");
+
+    // 🔑 Update container caption
+    container.setAttribute(
+      "data-caption",
+      images[index].dataset.caption || ""
+    );
+  }, 4500); // calm academic pacing
 });
 
