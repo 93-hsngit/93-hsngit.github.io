@@ -36,34 +36,22 @@
   }
 
 /* ===============================
-   Project image rotation (robust)
+   Project image rotation (stable)
 =============================== */
-window.addEventListener("load", () => {
-  document.querySelectorAll(".project-visual[data-rotate]").forEach(container => {
-    const images = Array.from(container.querySelectorAll("img"));
-    if (images.length < 2) return;
+document.querySelectorAll("[data-rotate]").forEach(container => {
+  const images = Array.from(container.querySelectorAll("img"));
+  if (images.length <= 1) return;
 
-    let index = 0;
+  let index = 0;
 
-    images.forEach((img, i) => {
-      img.classList.toggle("active", i === 0);
-    });
-
-    container.setAttribute(
-      "data-caption",
-      images[0].dataset.caption || ""
-    );
-
-    setInterval(() => {
-      images[index].classList.remove("active");
-      index = (index + 1) % images.length;
-      images[index].classList.add("active");
-
-      container.setAttribute(
-        "data-caption",
-        images[index].dataset.caption || ""
-      );
-    }, 4500);
+  images.forEach((img, i) => {
+    img.classList.toggle("active", i === 0);
   });
+
+  setInterval(() => {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+  }, 4200); // calm academic pacing
 });
 
