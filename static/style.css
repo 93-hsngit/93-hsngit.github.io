@@ -686,39 +686,46 @@ input:focus, textarea:focus{
   opacity: 0.9;
 }
 
-/* ===== Project visuals (true centered, bulletproof) ===== */
+/* ===== Project visuals (centered, stable, academic) ===== */
 
 .project-visual {
   position: absolute;
 
-  /* TRUE CENTERING */
+  /* True horizontal centering */
   left: 50%;
-  bottom: 20px;
+  bottom: 24px;
   transform: translateX(-50%);
 
-  /* Size */
-  width: 280px;
-  height: 180px;
+  /* Visual size (balanced with text) */
+  width: 300px;
+  height: 200px;
 
-  /* Layout */
+  /* Center image internally */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* Safety */
-  right: auto !important;   /* kill leftovers */
+  /* Hard reset to avoid browser leftovers */
+  right: auto !important;
   top: auto !important;
 
   pointer-events: none;
   overflow: hidden;
 
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.18);
+
+  /* Subtle figure framing (paper-like) */
+  background: rgba(0, 0, 0, 0.16);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
   backdrop-filter: blur(2px);
   z-index: 3;
+  opacity: 0.97;
 }
 
-/* Images */
+/* Images inside project visual */
 .project-visual img {
   position: absolute;
 
@@ -735,11 +742,12 @@ input:focus, textarea:focus{
   transition: opacity 1.2s ease-in-out;
 }
 
+/* Active image (JS toggles this) */
 .project-visual img.active {
   opacity: 1;
 }
 
-/* Mobile: hide */
+/* Mobile: hide visuals cleanly */
 @media (max-width: 768px) {
   .project-visual {
     display: none;
