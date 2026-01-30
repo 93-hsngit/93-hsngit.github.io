@@ -87,19 +87,37 @@ document.querySelectorAll('.card, .list-item').forEach(el => {
 =============================== */
 function copyEmail() {
   const emailText = document.getElementById("userEmail").textContent;
+
+  // Use the Clipboard API
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(emailText).then(() => {
+      showFeedback();
+    });
+  } else {
+    // Fallback for older browsers or non-secure contexts
+    const textArea = document.createElement("textarea");
+    textArea.value = emailText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showFeedback();
+    } catch (err) {
+      console.error('Fallback copy failed', err);
+    }
+    document.body.removeChild(textArea);
+  }
+}
+
+// Helper for the "Copied!" message
+function showFeedback() {
+  const chip = document.querySelector('.chip[onclick="copyEmail()"]');
+  const originalHTML = chip.innerHTML;
   
-  navigator.clipboard.writeText(emailText).then(() => {
-    // Visual feedback: briefly change the icon or text
-    const chip = document.querySelector('.chip[onclick="copyEmail()"]');
-    const originalContent = chip.innerHTML;
-    
-    chip.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
-    
-    setTimeout(() => {
-      chip.innerHTML = originalContent;
-    }, 2000);
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
+  chip.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
+  
+  setTimeout(() => {
+    chip.innerHTML = originalHTML;
+  }, 2000);
 }
 
