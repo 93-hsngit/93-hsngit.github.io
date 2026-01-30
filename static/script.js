@@ -35,21 +35,20 @@
       });
   }
 
-  /* ===============================
-     Project image rotation (FIXED)
-  =============================== */
-  document.querySelectorAll("[data-rotate]").forEach(container => {
+/* ===============================
+   Project image rotation (robust)
+=============================== */
+window.addEventListener("load", () => {
+  document.querySelectorAll(".project-visual[data-rotate]").forEach(container => {
     const images = Array.from(container.querySelectorAll("img"));
     if (images.length < 2) return;
 
     let index = 0;
 
-    // Force clean initial state
     images.forEach((img, i) => {
       img.classList.toggle("active", i === 0);
     });
 
-    // Set initial caption
     container.setAttribute(
       "data-caption",
       images[0].dataset.caption || ""
@@ -57,17 +56,14 @@
 
     setInterval(() => {
       images[index].classList.remove("active");
-
       index = (index + 1) % images.length;
-
       images[index].classList.add("active");
 
-      // 🔑 THIS IS THE MISSING PIECE
       container.setAttribute(
         "data-caption",
         images[index].dataset.caption || ""
       );
     }, 4500);
   });
-})();
+});
 
