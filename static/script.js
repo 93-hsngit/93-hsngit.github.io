@@ -38,39 +38,32 @@
     });
   }
 
-  /* ===============================
-     Project image rotation + captions
-  =============================== */
-  const visualBlocks = document.querySelectorAll("[data-rotate]");
+/* ===============================
+   Project image rotation + captions
+=============================== */
+const visualBlocks = document.querySelectorAll("[data-rotate]");
 
-  visualBlocks.forEach(container => {
-    const images = Array.from(container.querySelectorAll("img"));
-    if (images.length <= 1) return;
+visualBlocks.forEach(container => {
+  const images = container.querySelectorAll("img");
+  if (images.length <= 1) return;
 
-    let index = 0;
+  let index = 0;
 
-    // Initialize state deterministically
-    images.forEach((img, i) => {
-      img.classList.toggle("active", i === 0);
+  function updateActive(i) {
+    images.forEach((img, j) => {
+      img.classList.toggle("active", j === i);
     });
 
-    container.setAttribute(
-      "data-caption",
-      images[0].dataset.caption || ""
-    );
+    // 🔑 THIS IS THE FIX
+    const caption = images[i].getAttribute("data-caption") || "";
+    container.setAttribute("data-caption", caption);
+  }
 
-    // Calm, academic rotation
-    setInterval(() => {
-      images[index].classList.remove("active");
+  updateActive(0);
 
-      index = (index + 1) % images.length;
-
-      images[index].classList.add("active");
-      container.setAttribute(
-        "data-caption",
-        images[index].dataset.caption || ""
-      );
-    }, 4800); // slow & intentional
-  });
-})();
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    updateActive(index);
+  }, 4500);
+});
 
