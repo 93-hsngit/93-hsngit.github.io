@@ -42,7 +42,7 @@
   window.addEventListener("load", () => {
     document.querySelectorAll("[data-rotate]").forEach(container => {
       const images = container.querySelectorAll("img");
-      if (images.length <= 1) return;
+      if (images.length <= 2) return;
 
       let index = 0;
 
