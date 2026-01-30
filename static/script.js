@@ -1,12 +1,12 @@
 (function () {
-  const root = document.documentElement;
 
   /* ===============================
      Theme toggle
   =============================== */
+  const root = document.documentElement;
   const btn = document.getElementById("themeToggle");
-  const savedTheme = localStorage.getItem("theme");
 
+  const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light" || savedTheme === "dark") {
     root.setAttribute("data-theme", savedTheme);
   }
@@ -36,22 +36,27 @@
       });
   }
 
-/* ===============================
-   Project image rotation
-=============================== */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("[data-rotate]").forEach(container => {
-    const images = container.querySelectorAll("img");
-    if (images.length <= 1) return;
+  /* ===============================
+     Project image rotation
+  =============================== */
+  window.addEventListener("load", () => {
+    document.querySelectorAll("[data-rotate]").forEach(container => {
+      const images = container.querySelectorAll("img");
+      if (images.length <= 1) return;
 
-    let index = 0;
-    images.forEach((img, i) => img.classList.toggle("active", i === 0));
+      let index = 0;
 
-    setInterval(() => {
-      images[index].classList.remove("active");
-      index = (index + 1) % images.length;
-      images[index].classList.add("active");
-    }, 4200);
+      images.forEach((img, i) => {
+        img.classList.toggle("active", i === 0);
+      });
+
+      setInterval(() => {
+        images[index].classList.remove("active");
+        index = (index + 1) % images.length;
+        images[index].classList.add("active");
+      }, 4200);
+    });
   });
-});
+
+})();
 
