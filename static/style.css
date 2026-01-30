@@ -809,4 +809,23 @@ input:focus, textarea:focus{
 [data-theme="light"] .bg::before {
   opacity: 0.015; /* Even more subtle for white backgrounds */
 }
-
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--accent) 0.5px, transparent 0.5px);
+  background-size: 10px 10px; /* Micro-dot grid */
+  opacity: 0.1;
+  pointer-events: none;
+}
+/* Add this to your style.css around line 35 */
+[data-theme="light"] .tag {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+}
+.tag:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
