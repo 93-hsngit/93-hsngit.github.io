@@ -36,27 +36,25 @@
       });
   }
 
-  /* ===============================
-     Project image rotation (FIXED)
-  =============================== */
-  window.addEventListener("load", () => {
-    document.querySelectorAll("[data-rotate]").forEach(container => {
-      const images = container.querySelectorAll("img");
-      if (images.length <= 1) return;
+/* ===============================
+   Project image rotation
+=============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-rotate]").forEach(container => {
+    const images = container.querySelectorAll("img");
+    if (images.length < 2) return;
 
-      let index = 0;
+    let index = 0;
 
-      // Ensure clean start
-      images.forEach(img => img.classList.remove("active"));
-      images[0].classList.add("active");
-
-      setInterval(() => {
-        images[index].classList.remove("active");
-        index = (index + 1) % images.length;
-        images[index].classList.add("active");
-      }, 4000);
+    images.forEach((img, i) => {
+      img.classList.toggle("active", i === 0);
     });
-  });
 
-})();
+    setInterval(() => {
+      images[index].classList.remove("active");
+      index = (index + 1) % images.length;
+      images[index].classList.add("active");
+    }, 4200);
+  });
+});
 
