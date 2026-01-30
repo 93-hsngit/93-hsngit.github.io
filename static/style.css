@@ -686,19 +686,20 @@ input:focus, textarea:focus{
   opacity: 0.9;
 }
 
-/* === Project visual container (cross-browser safe) === */
+/* ===== Project visuals (centered, cross-browser safe) ===== */
 
 .card {
-  position: relative; /* anchor for absolute children */
+  position: relative; /* anchor for absolute visuals */
 }
 
 .project-visual {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  width: 180px;
-  height: 130px;
+  width: 260px;          /* increased size */
+  height: 170px;
 
   display: flex;
   align-items: center;
@@ -707,17 +708,16 @@ input:focus, textarea:focus{
   pointer-events: none;
   overflow: hidden;
 
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(2px);
 
   z-index: 2;
-  opacity: 0.95;
 }
 
-/* Images inside project visual */
+/* Images */
 .project-visual img {
   position: absolute;
-
   max-width: 100%;
   max-height: 100%;
 
@@ -727,13 +727,11 @@ input:focus, textarea:focus{
   object-fit: contain;
   object-position: center;
 
-  display: block;
-
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.2s ease-in-out;
 }
 
-/* Active image (JS toggles this) */
+/* Active image */
 .project-visual img.active {
   opacity: 1;
 }
