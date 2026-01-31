@@ -1043,3 +1043,10 @@ input:focus, textarea:focus{
 #projects .card p {
   text-align: left;
 }
+.card p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  /* Prevents justification from looking 'broken' on very narrow lines */
+  min-width: 0; 
+}
