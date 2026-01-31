@@ -1025,3 +1025,21 @@ input:focus, textarea:focus{
   letter-spacing: -0.02em; /* Slight tightening for a premium look */
   max-width: 15ch; /* Prevents the title from stretching too wide */
 }
+/* Justify only the long-form research text */
+.hero-narrative, 
+.card p, 
+.section-head p {
+  text-align: justify;
+  text-justify: inter-word; /* Ensures even spacing between words */
+  hyphens: auto;            /* Breaks long scientific words correctly */
+}
+
+/* Keep the hero subtitle left-aligned for better impact */
+.hero-subtitle {
+  text-align: left;
+}
+/* Keep the research/project cards left-aligned for better scanning */
+#research .card p,
+#projects .card p {
+  text-align: left;
+}
