@@ -1126,4 +1126,53 @@ input:focus, textarea:focus{
 .news-link:hover {
   text-decoration: underline;
 }
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: var(--card2);
+  border-bottom: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  height: 40px;
+  position: relative;
+  z-index: 1001;
+}
+
+.ticker-label {
+  background: var(--accent);
+  color: #fff;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.ticker-text {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-move 30s linear infinite;
+  padding-left: 100%;
+}
+
+.ticker-text span {
+  padding: 0 40px;
+  font-size: 0.85rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+@keyframes ticker-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pause on hover so people can read the links */
+.ticker-wrapper:hover .ticker-text {
+  animation-play-state: paused;
+}
 
