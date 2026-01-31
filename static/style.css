@@ -899,3 +899,35 @@ input:focus, textarea:focus{
     grid-template-columns: 1fr;
   }
 }
+/* Optimized Mini-Stats for the New Content */
+.mini-stats {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 600px; /* Keeps them from getting too wide and breaking the split view */
+}
+
+.stat {
+  flex: 1;
+  min-width: 180px; /* Ensures boxes don't get too squashed */
+  padding: 1rem;
+  background: var(--card); /* Subtle card background */
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.stat-num {
+  font-size: 0.9rem; /* Slightly smaller title */
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-label {
+  font-size: 0.78rem; /* Professional compact size for technical bullets */
+  line-height: 1.5;
+  color: var(--text-dim);
+  white-space: pre-line; /* Respects your line breaks without adding extra padding */
+}
