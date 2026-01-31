@@ -85,23 +85,23 @@ document.querySelectorAll('.card, .list-item').forEach(el => {
 /* ===============================
    Copy Email Functionality
 =============================== */
-function copyEmail() {
-  const emailText = document.getElementById("userEmail").textContent;
+function copyEmail(element) {
+  // Finds the email text specifically within the clicked chip
+  const emailText = element.querySelector('#userEmail').textContent;
 
-  // Use the Clipboard API
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(emailText).then(() => {
-      showFeedback();
+      showFeedback(element);
     });
   } else {
-    // Fallback for older browsers or non-secure contexts
+    // Fallback logic
     const textArea = document.createElement("textarea");
     textArea.value = emailText;
     document.body.appendChild(textArea);
     textArea.select();
     try {
       document.execCommand('copy');
-      showFeedback();
+      showFeedback(element);
     } catch (err) {
       console.error('Fallback copy failed', err);
     }
@@ -109,17 +109,11 @@ function copyEmail() {
   }
 }
 
-// Helper for the "Copied!" message
-// Optimized helper for the "Copied!" message
-function showFeedback() {
-  // Find the specific chip that was clicked
-  const chip = document.querySelector('.chip[onclick="copyEmail()"]');
-  // Find the text label inside the chip (the span we created)
-  const label = chip.querySelector('#heroEmailName') || chip;
-  
+function showFeedback(element) {
+  // Target the specific label or the chip itself
+  const label = element.querySelector('#heroEmailName') || element;
   const originalHTML = label.innerHTML;
   
-  // Apply "Copied!" feedback
   label.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
   
   setTimeout(() => {
