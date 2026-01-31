@@ -110,14 +110,20 @@ function copyEmail() {
 }
 
 // Helper for the "Copied!" message
+// Optimized helper for the "Copied!" message
 function showFeedback() {
+  // Find the specific chip that was clicked
   const chip = document.querySelector('.chip[onclick="copyEmail()"]');
-  const originalHTML = chip.innerHTML;
+  // Find the text label inside the chip (the span we created)
+  const label = chip.querySelector('#heroEmailName') || chip;
   
-  chip.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
+  const originalHTML = label.innerHTML;
+  
+  // Apply "Copied!" feedback
+  label.innerHTML = `<i class="fa-solid fa-check" style="color: #2ecc71;"></i> Copied!`;
   
   setTimeout(() => {
-    chip.innerHTML = originalHTML;
+    label.innerHTML = originalHTML;
   }, 2000);
 }
 /* ===============================
