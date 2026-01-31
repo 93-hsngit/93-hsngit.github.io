@@ -1062,4 +1062,38 @@ input:focus, textarea:focus{
   font-style: italic;
   opacity: 0.8;
 }
+/* Styling for 'Under Review' and 'In Prep' work */
+.status-under-review {
+  border-left: 4px solid var(--muted) !important; /* Visual indicator of 'work in progress' */
+  background: linear-gradient(90deg, var(--card), transparent) !important;
+  opacity: 0.85; /* Makes it slightly secondary to published work */
+}
+
+/* Ensure the 'Coming Soon' text looks professional */
+.muted-text {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-left: 5px;
+}
+/* Status tag for journal submissions */
+.status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--card2);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-left: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Ensure the Under Review item has a distinct visual appearance */
+.status-under-review {
+  border-left: 4px solid var(--accent) !important;
+  background: linear-gradient(90deg, var(--card2), transparent) !important;
+}
 
