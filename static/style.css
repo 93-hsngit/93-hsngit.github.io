@@ -994,3 +994,25 @@ input:focus, textarea:focus{
     max-width: 100%;
   }
 }
+.mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;       /* Reduced gap between the three boxes */
+  margin-top: 1.2rem;
+  max-width: 700px;
+}
+
+.stat {
+  flex: 1 1 200px;    /* Allows boxes to sit tighter together */
+  padding: 1rem;      /* Reduced internal padding to shrink the box size */
+  background: var(--card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  line-height: 1.4;   /* Tighter line height for the bullets */
+  color: var(--muted);
+  margin-top: 4px;
+}
