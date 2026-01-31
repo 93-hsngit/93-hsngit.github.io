@@ -869,3 +869,33 @@ input:focus, textarea:focus{
 .chip[onclick]:active {
   transform: translateY(0);
 }
+/* --- High-Density Mini-Stats Styling --- */
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-num {
+  font-size: 1rem; /* Slightly smaller to fit technical titles */
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-family: "Inter", sans-serif;
+}
+
+.stat-label {
+  font-size: 0.85rem; /* Compact font for technical bullets */
+  line-height: 1.6;
+  color: var(--text-dim); /* Subtle color so it doesn't fight with the title */
+  text-align: left; /* Left align bullets for better scanning */
+}
+
+/* Ensure boxes are responsive on mobile */
+@media (max-width: 768px) {
+  .mini-stats {
+    grid-template-columns: 1fr;
+  }
+}
