@@ -931,3 +931,8 @@ input:focus, textarea:focus{
   color: var(--text-dim);
   white-space: pre-line; /* Respects your line breaks without adding extra padding */
 }
+.hero-content {
+  display: flex;
+  align-items: flex-start; /* Keeps both sides aligned at the top */
+  gap: 3rem;
+}
