@@ -1047,4 +1047,18 @@ input:focus, textarea:focus{
     text-align: left;
   }
 }
+/* Placeholder and Status Styling */
+.status-badge {
+  background: transparent !important;
+  border: 1px dashed var(--muted) !important; /* Visual cue for 'work in progress' */
+  color: var(--muted) !important;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
 
