@@ -1025,28 +1025,26 @@ input:focus, textarea:focus{
   letter-spacing: -0.02em; /* Slight tightening for a premium look */
   max-width: 15ch; /* Prevents the title from stretching too wide */
 }
-/* Justify only the long-form research text */
+/* --- High-End Scientific Justification --- */
+
+/* Targets the main hero text and every paragraph in your cards */
 .hero-narrative, 
 .card p, 
 .section-head p {
   text-align: justify;
-  text-justify: inter-word; /* Ensures even spacing between words */
-  hyphens: auto;            /* Breaks long scientific words correctly */
+  text-justify: inter-word; /* Distributes space evenly between words */
+  hyphens: auto;            /* Breaks long technical words like 'first-principles' */
 }
 
-/* Keep the hero subtitle left-aligned for better impact */
+/* Ensure the hero subtitle stays left-aligned for a modern look */
 .hero-subtitle {
   text-align: left;
 }
-/* Keep the research/project cards left-aligned for better scanning */
-#research .card p,
-#projects .card p {
-  text-align: left;
+
+/* Mobile Tweak: Turn off justification on small screens to prevent weird gaps */
+@media (max-width: 600px) {
+  .hero-narrative, .card p, .section-head p {
+    text-align: left;
+  }
 }
-.card p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  /* Prevents justification from looking 'broken' on very narrow lines */
-  min-width: 0; 
-}
+
