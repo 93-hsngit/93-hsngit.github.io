@@ -936,3 +936,61 @@ input:focus, textarea:focus{
   align-items: flex-start; /* Keeps both sides aligned at the top */
   gap: 3rem;
 }
+/* --- FINAL HERO LAYOUT FIX --- */
+
+/* 1. Manages the Side-by-Side View */
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* 2. Optimized Mini-Stats Box Alignment */
+.mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 650px; /* Prevents text from stretching too far */
+}
+
+.stat {
+  flex: 1;
+  min-width: 180px;
+  padding: 1.2rem;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: "Inter", sans-serif;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* 3. Mobile Responsiveness */
+@media (max-width: 980px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .mini-stats {
+    max-width: 100%;
+  }
+}
