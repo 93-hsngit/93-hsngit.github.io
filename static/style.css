@@ -1096,4 +1096,34 @@ input:focus, textarea:focus{
   border-left: 4px solid var(--accent) !important;
   background: linear-gradient(90deg, var(--card2), transparent) !important;
 }
+/* Highlights the most recent news item */
+.featured-news {
+  border-left: 4px solid var(--accent);
+  background: rgba(var(--accent-rgb), 0.05); /* Very subtle tint */
+  padding: 15px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 20px;
+}
+
+.news-date {
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
 
