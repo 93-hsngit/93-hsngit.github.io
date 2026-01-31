@@ -1175,4 +1175,46 @@ input:focus, textarea:focus{
 .ticker-wrapper:hover .ticker-text {
   animation-play-state: paused;
 }
+/* --- High-Priority Ticker Fix --- */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #1a1a1a; /* Dark background to ensure contrast */
+  border-bottom: 1px solid #00f2fe; /* Your accent color */
+  display: flex;
+  align-items: center;
+  height: 40px;
+  position: relative; /* Changed from absolute to prevent overlap */
+  z-index: 2000; /* High number to stay above the topbar and blobs */
+}
+
+.ticker-label {
+  background: #00f2fe; /* Force your accent color */
+  color: #000;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  z-index: 2001;
+  white-space: nowrap;
+}
+
+.ticker-text {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-move 35s linear infinite;
+}
+
+.ticker-text span {
+  padding: 0 40px;
+  font-size: 0.85rem;
+  color: #ffffff; /* Force white text for visibility */
+}
+
+@keyframes ticker-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
 
