@@ -3,5 +3,8 @@ description: Computational Materials & Quantum Research Portfolio
 baseurl: "" 
 url: "https://hossain-cq.github.io"
 
+# This is the "magic" line that prevents GitHub from overriding your layout
+theme: null
+
 # This tells Jekyll to ignore your old static files if you keep them as backups
 exclude: [README.md, Gemfile, Gemfile.lock]
