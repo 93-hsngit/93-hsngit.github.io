@@ -1174,10 +1174,6 @@ input:focus, textarea:focus{
   text-align: center;
 }
 
-.footer-sep {
-  margin: 0 15px;            /* Widens the space around the dot */
-  color: var(--accent);
-}
 /* This styles the bottom container specifically */
 .footer-bottom {
     margin-top: 35px;           /* Pushes the copyright down away from the pills */
@@ -1194,4 +1190,8 @@ input:focus, textarea:focus{
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;                  /* Horizontal and vertical gap between pills */
+}
+.footer-sep {
+    margin: 0 15px; /* This adds a bit more horizontal space around the dot */
+    color: var(--accent); /* Optional: makes the dot your brand color */
 }
