@@ -1016,3 +1016,12 @@ input:focus, textarea:focus{
   color: var(--muted);
   margin-top: 4px;
 }
+.hero-title {
+  margin: 10px 0 15px;
+  /* Use clamp to make it responsive: 
+     minimum 32px, preferred 4.5vw, maximum 48px */
+  font-size: clamp(32px, 4.5vw, 48px); 
+  line-height: 1.1; /* Tight line height keeps it cohesive */
+  letter-spacing: -0.02em; /* Slight tightening for a premium look */
+  max-width: 15ch; /* Prevents the title from stretching too wide */
+}
