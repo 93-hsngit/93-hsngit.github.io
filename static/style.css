@@ -1217,4 +1217,56 @@ input:focus, textarea:focus{
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+/* ===============================
+   News Ticker Styling & Animation
+=============================== */
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: var(--card2, #1a1a1a); /* Fallback to dark if var fails */
+  border-bottom: 1px solid var(--accent, #00f2fe);
+  display: flex;
+  align-items: center;
+  height: 40px;
+  position: relative;
+  z-index: 2000; /* Keeps it above everything */
+}
+
+.ticker-label {
+  background: var(--accent, #00f2fe);
+  color: #000;
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  z-index: 2001;
+  white-space: nowrap;
+}
+
+.ticker-text {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-move 35s linear infinite;
+  padding-left: 100%;
+}
+
+.ticker-text span {
+  padding: 0 40px;
+  font-size: 0.85rem;
+  color: var(--text, #ffffff);
+  font-weight: 500;
+}
+
+@keyframes ticker-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Pause on hover for readability */
+.ticker-wrapper:hover .ticker-text {
+  animation-play-state: paused;
+}
 
