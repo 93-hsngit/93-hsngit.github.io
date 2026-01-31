@@ -1178,3 +1178,20 @@ input:focus, textarea:focus{
   margin: 0 15px;            /* Widens the space around the dot */
   color: var(--accent);
 }
+/* This styles the bottom container specifically */
+.footer-bottom {
+    margin-top: 35px;           /* Pushes the copyright down away from the pills */
+    padding-top: 20px;          /* Adds space between the new line and the text */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Adds a subtle, elegant divider line */
+    text-align: center;
+    width: 100%;
+}
+
+/* Adjusts the pills to ensure they don't feel cramped */
+.method-tags {
+    margin-bottom: 10px;        /* Ensures tags have a small gap at the bottom */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;                  /* Horizontal and vertical gap between pills */
+}
