@@ -1216,7 +1216,7 @@ input:focus, textarea:focus{
    Active nav link (final tuned)
 =============================== */
 .nav a.active {
-  color: #b2a8ff; /* periwinkle-violet (very close to your image) */
+  color: #aab6ff; /* periwinkle-violet (very close to your image) */
 }
 
 /* Underline */
