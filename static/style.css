@@ -1230,4 +1230,20 @@ input:focus, textarea:focus{
 
   box-shadow: 0 0 12px rgba(199, 125, 255, 0.6);
 }
+.nav a.active {
+  color: #c77dff;
+}
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 4px;
+  background: linear-gradient(90deg, #9d4edd, #c77dff);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(199, 125, 255, 0.6);
+}
+
 
