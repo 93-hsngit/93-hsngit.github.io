@@ -176,5 +176,47 @@ navLinks.forEach(link => {
     setActiveNav(id);
   });
 });
+/* ===============================
+   Simple ScrollSpy (robust)
+=============================== */
+
+const navAnchors = Array.from(
+  document.querySelectorAll("nav.nav a[href^='#']")
+);
+
+const sectionElems = navAnchors.map(link => {
+  const id = link.getAttribute("href").slice(1);
+  return document.getElementById(id);
+});
+
+// On scroll
+window.addEventListener("scroll", () => {
+  let current = null;
+
+  sectionElems.forEach(section => {
+    if (
+      section &&
+      section.offsetTop <= window.scrollY + window.innerHeight / 4
+    ) {
+      current = section.id;
+    }
+  });
+
+  navAnchors.forEach(link => {
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current}`
+    );
+  });
+});
+
+// On click (smooth feedback)
+navAnchors.forEach(link => {
+  link.addEventListener("click", () => {
+    navAnchors.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
+
 
 
