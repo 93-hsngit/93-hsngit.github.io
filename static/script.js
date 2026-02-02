@@ -135,47 +135,7 @@ function openWhatsApp() {
   // Opens the link in a new tab
   window.open(fullUrl, '_blank', 'noopener,noreferrer');
 }
-/* ===============================
-   Active navigation (ScrollSpy)
-=============================== */
 
-const navLinks = document.querySelectorAll(".nav a");
-const sections = document.querySelectorAll("section[id]");
-
-function setActiveNav(id) {
-  navLinks.forEach(link => {
-    link.classList.toggle(
-      "active",
-      link.getAttribute("href") === `#${id}`
-    );
-  });
-}
-
-// Observe section visibility
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setActiveNav(entry.target.id);
-      }
-    });
-  },
-  {
-    rootMargin: "-40% 0px -50% 0px",
-    threshold: 0
-  }
-);
-
-// Attach observer
-sections.forEach(section => observer.observe(section));
-
-// Immediate feedback on click
-navLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    const id = link.getAttribute("href").slice(1);
-    setActiveNav(id);
-  });
-});
 /* ===============================
    Simple ScrollSpy (robust)
 =============================== */
