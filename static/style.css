@@ -1266,7 +1266,7 @@ input:focus, textarea:focus{
    Active nav link (your target look)
 =============================== */
 .nav a.active {
-  color: #b79cff; /* soft violet (NOT neon) */
+  color: #a995ff; /* soft violet (NOT neon) */
 }
 
 /* Underline indicator */
