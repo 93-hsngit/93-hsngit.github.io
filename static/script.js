@@ -42,7 +42,7 @@
   window.addEventListener("load", () => {
     document.querySelectorAll("[data-rotate]").forEach(container => {
       const images = container.querySelectorAll("img");
-      if (images.length <= 2) return;
+      if (images.length <= 1) return;
 
       let index = 0;
 
@@ -156,7 +156,7 @@ window.addEventListener("scroll", () => {
   sectionElems.forEach(section => {
     if (
       section &&
-      section.offsetTop <= window.scrollY + window.innerHeight / 4
+      section.offsetTop <= window.scrollY + window.innerHeight / 3
     ) {
       current = section.id;
     }
