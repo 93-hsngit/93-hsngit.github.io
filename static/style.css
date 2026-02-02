@@ -1195,3 +1195,39 @@ input:focus, textarea:focus{
     margin: 0 15px; /* This adds a bit more horizontal space around the dot */
     color: var(--accent); /* Optional: makes the dot your brand color */
 }
+/* ===== Navigation links ===== */
+.nav a {
+  position: relative;
+  padding: 6px 10px;
+  color: rgba(220, 220, 230, 0.75);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+/* Hover */
+.nav a:hover {
+  color: #ffffff;
+}
+
+/* ===== Active section ===== */
+.nav a.active {
+  color: #c77dff;
+}
+
+/* Curved underline / glow */
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+
+  width: 28px;
+  height: 4px;
+
+  background: linear-gradient(90deg, #9d4edd, #c77dff);
+  border-radius: 999px;
+
+  box-shadow: 0 0 12px rgba(199, 125, 255, 0.6);
+}
+
